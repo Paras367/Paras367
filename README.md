@@ -83,7 +83,7 @@ Welcome to my GitHub profile! I'm a passionate student developer who loves build
 
 **Tech Stack:** Python, Tkinter, Turtle
 
-**Repo:** [Advaced_Codes](/Advanced_Codes/)
+**Repo:** [Advaced_Codes](https://github.com/Paras367/Advanced_Codes/)
 
 ---
 
