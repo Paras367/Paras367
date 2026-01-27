@@ -16,29 +16,16 @@ Welcome to my GitHub profile! I'm a passionate student developer who loves build
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack & Badges
 
-### 💡 Languages
+![Python Badge](https://img.shields.io/badge/Python-3670A0?style=for-the-badge\&logo=python\&logoColor=ffdd54) ![JavaScript Badge](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black) ![Open Source Badge](https://img.shields.io/badge/Open%20Source-4AB2E7?style=for-the-badge\&logo=github\&logoColor=white) ![Student Dev Badge](https://img.shields.io/badge/Student-0A0A0A?style=for-the-badge\&logo=student)
 
 * Python 🐍
 * JavaScript (ES6+)
-* HTML5
-* CSS3
-
-### 🧰 Frameworks & Tools
-
+* HTML5 & CSS3
 * Tkinter & Turtle (Python GUI & graphics)
-* Cloudflare Workers
-* Supabase (backend & auth)
+* Cloudflare Workers & Supabase (backend)
 * Git & GitHub
-* VS Code
-
-### 🌐 Web Development
-
-* Responsive UI design
-* DOM manipulation
-* JSON-based local knowledge systems
-* Frontend-only AI simulations
 
 ---
 
@@ -67,20 +54,36 @@ Welcome to my GitHub profile! I'm a passionate student developer who loves build
 
 ## 📊 GitHub Stats
 
-> I believe in **learning by doing** — every repo represents a new concept explored.
-
-* 📁 Multiple educational & experimental repositories
-* 🔁 Constantly refactoring & improving old projects
-* 🧠 Focus on clarity, logic, and creativity
+![CyberVex's GitHub stats](https://github-readme-stats.vercel.app/api?username=CyberVex\&show_icons=true\&theme=radical)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=CyberVex\&layout=compact\&theme=radical)
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=CyberVex\&theme=radical)
 
 ---
 
-## 🎯 Goals
+## 🎯 College Application Highlights
 
-* 📚 Deepen understanding of **core CS concepts**
-* 🧠 Build smarter **AI-powered tools**
-* 🌍 Create **open-source educational resources**
-* 🚀 Improve system design & clean architecture
+* Created **multiple advanced projects** demonstrating problem-solving & creativity
+* Strong focus on **STEM-based learning & simulations**
+* Active **GitHub portfolio** showing consistent coding practice
+* Projects involve **AI, data visualization, and system design**
+
+---
+
+## 📝 Project-Based Example
+
+### 🔬 Phase Change Time Machine
+
+**Description:** Simulates states of matter with interactive visuals using Tkinter & Turtle.
+
+**Features:**
+
+* Real-time particle animation
+* Visual phase transitions (solid, liquid, gas)
+* Educational & interactive GUI
+
+**Tech Stack:** Python, Tkinter, Turtle
+
+**Repo:** [Advaced_Codes](/Advanced_Codes/)
 
 ---
 
