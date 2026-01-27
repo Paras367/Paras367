@@ -56,7 +56,7 @@ Welcome to my GitHub profile! I'm a passionate student developer who loves build
 
 ![CyberVex's GitHub stats](https://github-readme-stats.vercel.app/api?username=Paras367)
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Paras367)
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Paras367/)
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Paras367)
 
 ---
 
