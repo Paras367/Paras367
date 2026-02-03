@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYSTEM ACCESS // INITIALIZING...</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;700;900&family=Press+Start+2P&family=VT323&family=Source+Code+Pro:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --matrix-green: #00ff00;
+            --terminal-black: #0a0a0a;
+            --neon-blue: #00ffff;
+            --warning-red: #ff0000;
+            --system-purple: #9d00ff;
+            --accent-cyan: #00f3ff;
+            --glitch-purple: #6e00ff;
+            --scanline-intensity: 0.03;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--terminal-black) 0%, #1a1a1a 100%);
+            color: var(--matrix-green);
+            font-family: 'Share Tech Mono', monospace;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 1px,
+                rgba(0, 255, 0, 0.05) 1px,
+                rgba(0, 255, 0, 0.05) 2px
+            );
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.3;
+        }
+
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--matrix-green) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+            filter: blur(2px);
+            transition: transform 0.1s ease;
+        }
+
+        .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--matrix-green);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: transform 0.3s ease;
+        }
+
+        .scanline-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(0, 0, 0, 0) 50%,
+                rgba(0, 255, 0, var(--scanline-intensity)) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 9997;
+            animation: scanlineMove 0.5s linear infinite;
+        }
+
+        @keyframes scanlineMove {
+            0% { background-position-y: 0; }
+            100% { background-position-y: 4px; }
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZT0iMzAwIiB0eXBlPSJmcmFjdGFsTm9pc2UiLz48ZmVDb2xvdXJNYXRyaXggdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwLjA1IDAiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMzAwJSIgaGVpZ2h0PSIzMDAlIiBmaWx0ZXI9InVybCgjYSkiLz48L3N2Zz4=');
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 9996;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .system-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .system-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--matrix-green), var(--neon-blue), var(--system-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .system-logo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--matrix-green), transparent);
+            animation: glowLine 2s infinite;
+        }
+
+        @keyframes glowLine {
+            0%, 100% { opacity: 0.3; width: 100px; }
+            50% { opacity: 1; width: 250px; }
+        }
+
+        .system-status {
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+            color: var(--neon-blue);
+            margin-top: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .terminal-container {
+            background: rgba(10, 10, 10, 0.95);
+            border: 2px solid var(--matrix-green);
+            border-radius: 10px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 
+                0 0 30px rgba(0, 255, 0, 0.3),
+                inset 0 0 20px rgba(0, 255, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terminal-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--warning-red), var(--system-purple), var(--neon-blue));
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+        }
+
+        .terminal-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1rem;
+            color: var(--warning-red);
+            letter-spacing: 1px;
+        }
+
+        .terminal-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .control-btn {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn.close {
+            background: var(--warning-red);
+            box-shadow: 0 0 10px var(--warning-red);
+        }
+
+        .control-btn.minimize {
+            background: #ffcc00;
+            box-shadow: 0 0 10px #ffcc00;
+        }
+
+        .control-btn.maximize {
+            background: var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .typing-container {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .typing-text {
+            display: inline-block;
+            border-right: 3px solid var(--matrix-green);
+            animation: blink 0.7s infinite;
+            position: relative;
+        }
+
+        @keyframes blink {
+            0%, 100% { border-color: var(--matrix-green); opacity: 1; }
+            50% { border-color: transparent; opacity: 0.7; }
+        }
+
+        .command-prompt {
+            color: var(--neon-blue);
+            font-weight: 600;
+        }
+
+        .command-output {
+            color: var(--system-purple);
+            margin-left: 20px;
+        }
+
+        .highlight {
+            color: var(--warning-red);
+            font-weight: 700;
+            text-shadow: 0 0 10px var(--warning-red);
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background: rgba(0, 30, 0, 0.6);
+            border: 1px solid rgba(0, 255, 0, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .icon-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .icon-item:hover::before {
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+        }
+
+        .icon-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 255, 0, 0.3);
+            border-color: var(--matrix-green);
+        }
+
+        .icon-symbol {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .icon-item:hover .icon-symbol {
+            transform: scale(1.2) rotate(360deg);
+            color: var(--neon-blue);
+        }
+
+        .icon-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            text-align: center;
+            color: var(--matrix-green);
+            letter-spacing: 1px;
+        }
+
+        .progress-container {
+            width: 100%;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(0, 20, 0, 0.8);
+            border-radius: 5px;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--neon-blue);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(0, 50, 0, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--matrix-green), var(--neon-blue));
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .access-granted {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: rgba(0, 255, 0, 0.9);
+            color: var(--terminal-black);
+            padding: 3rem 5rem;
+            border-radius: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-shadow: 0 0 30px rgba(0, 255, 0, 0.8);
+            z-index: 9999;
+            box-shadow: 0 0 50px rgba(0, 255, 0, 0.5);
+            animation: pulseAccess 0.5s ease-out;
+            display: none;
+        }
+
+        @keyframes pulseAccess {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        .glitch-effect {
+            position: relative;
+        }
+
+        .glitch-effect::before,
+        .glitch-effect::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-effect::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--glitch-purple);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        }
+
+        .glitch-effect::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--warning-red);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim-1 {
+            0% { clip: rect(30px, 9999px, 16px, 0); }
+            20% { clip: rect(39px, 9999px, 49px, 0); }
+            40% { clip: rect(3px, 9999px, 62px, 0); }
+            60% { clip: rect(58px, 9999px, 79px, 0); }
+            80% { clip: rect(71px, 9999px, 3px, 0); }
+            100% { clip: rect(4px, 9999px, 50px, 0); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { top: -1px; left: 1px; clip: rect(65px, 9999px, 23px, 0); }
+            20% { top: -6px; left: 4px; clip: rect(11px, 9999px, 89px, 0); }
+            40% { top: -3px; left: 2px; clip: rect(52px, 9999px, 33px, 0); }
+            60% { top: 0; left: -4px; clip: rect(48px, 9999px, 42px, 0); }
+            80% { top: -5px; left: 6px; clip: rect(13px, 9999px, 73px, 0); }
+            100% { top: -2px; left: 3px; clip: rect(58px, 9999px, 52px, 0); }
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--matrix-green);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9995;
+        }
+
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .matrix-column {
+            position: absolute;
+            top: -100px;
+            color: var(--matrix-green);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 14px;
+            text-shadow: 0 0 5px var(--matrix-green);
+            animation: matrixFall linear infinite;
+        }
+
+        @keyframes matrixFall {
+            to { transform: translateY(100vh); }
+        }
+
+        .audio-feedback {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 30, 0, 0.8);
+            border: 1px solid var(--matrix-green);
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-family: 'VT323', monospace;
+            font-size: 0.9rem;
+            color: var(--neon-blue);
+            z-index: 9999;
+            display: none;
+            animation: fadeInOut 3s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; transform: translateY(20px); }
+            10%, 90% { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .system-logo {
+                font-size: 2.5rem;
+            }
+            
+            .icon-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .terminal-container {
+                padding: 1rem;
+                width: 95%;
+            }
+            
+            .typing-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div class="scanline-overlay"></div>
+    <div class="noise-overlay"></div>
+    <div class="matrix-rain" id="matrixRain"></div>
+    
+    <div class="container">
+        <div class="system-header">
+            <h1 class="system-logo glitch-effect" data-text="CYBER CORE">CYBER CORE</h1>
+            <p class="system-status">// SECURE SYSTEM ACCESS //</p>
+        </div>
+
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <div class="terminal-title">root@system:~#</div>
+                <div class="terminal-controls">
+                    <div class="control-btn close"></div>
+                    <div class="control-btn minimize"></div>
+                    <div class="control-btn maximize"></div>
+                </div>
+            </div>
+
+            <div class="typing-container">
+                <div id="typingText" class="typing-text"></div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>SYSTEM INTEGRITY</span>
+                    <span id="progressPercent">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <div class="icon-grid">
+                <div class="icon-item" onclick="showFeedback('Firewall Bypassed')">
+                    <i class="fas fa-shield-alt icon-symbol"></i>
+                    <span class="icon-label">FIREWALL</span>
+                </div>
+                <div class="icon-item" onclick="showFeedback('Encryption Cracked')">
+                    <i class="fas fa-lock-open icon-symbol"></i>
+                    <span class="icon-label">ENCRYPT</span>
+                </div>
+                <div class="icon-item" onclick="showFeedback('Network Scanned')">
+                    <i class="fas fa-network-wired icon-symbol"></i>
+                    <span class="icon-label">NETWORK</span>
+                </div>
+                <div class="icon-item" onclick="showFeedback('Database Accessed')">
+                    <i class="fas fa-database icon-symbol"></i>
+                    <span class="icon-label">DATABASE</span>
+                </div>
+                <div class="icon-item" onclick="showFeedback('Security Protocol Disabled')">
+                    <i class="fas fa-user-secret icon-symbol"></i>
+                    <span class="icon-label">STEALTH</span>
+                </div>
+                <div class="icon-item" onclick="showFeedback('System Override')">
+                    <i class="fas fa-terminal icon-symbol"></i>
+                    <span class="icon-label">TERMINAL</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="access-granted" id="accessGranted">ACCESS GRANTED</div>
+    <div class="audio-feedback" id="audioFeedback"></div>
+
+    <script>
+        // Matrix Rain Effect
+        function createMatrixRain() {
+            const matrixRain = document.getElementById('matrixRain');
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+-=[]{}|;:,.<>?';
+            const fontSize = 14;
+            const columns = Math.floor(window.innerWidth / fontSize);
+            
+            for (let i = 0; i < columns; i++) {
+                const column = document.createElement('div');
+                column.className = 'matrix-column';
+                column.style.left = `${i * fontSize}px`;
+                column.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                column.style.opacity = Math.random();
+                
+                // Generate random characters for this column
+                let text = '';
+                for (let j = 0; j < 100; j++) {
+                    text += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                column.textContent = text;
+                
+                matrixRain.appendChild(column);
+            }
+        }
+
+        // Hacker Typing Effect
+        const hackerText = [
+            { text: '$ sudo init_system --secure', delay: 500 },
+            { text: 'Initializing cyber core protocols...', delay: 800 },
+            { text: 'Loading encryption modules...', delay: 600 },
+            { text: 'Establishing secure connection...', delay: 700 },
+            { text: 'Bypassing firewall protocols...', delay: 900 },
+            { text: 'Decrypting security layers...', delay: 800 },
+            { text: 'Scanning network infrastructure...', delay: 700 },
+            { text: 'Injecting access credentials...', delay: 1000 },
+            { text: 'Overriding system permissions...', delay: 800 },
+            { text: 'Establishing root access...', delay: 900 },
+            { text: 'System integrity check: PASSED', delay: 1200 },
+            { text: 'ACCESS GRANTED', delay: 1500, highlight: true }
+        ];
+
+        let currentIndex = 0;
+        let charIndex = 0;
+        let currentLine = '';
+        let isDeleting = false;
+        const typingText = document.getElementById('typingText');
+        const progressFill = document.getElementById('progressFill');
+        const progressPercent = document.getElementById('progressPercent');
+        const accessGranted = document.getElementById('accessGranted');
+
+        function typeWriter() {
+            if (currentIndex < hackerText.length) {
+                const currentMessage = hackerText[currentIndex];
+                
+                if (!isDeleting && charIndex < currentMessage.text.length) {
+                    currentLine += currentMessage.text.charAt(charIndex);
+                    charIndex++;
+                    
+                    if (currentMessage.highlight) {
+                        typingText.innerHTML = `<span class="highlight">${currentLine}</span>`;
+                    } else if (currentLine.startsWith('$')) {
+                        typingText.innerHTML = `<span class="command-prompt">${currentLine}</span>`;
+                    } else {
+                        typingText.innerHTML = `<span class="command-output">${currentLine}</span>`;
+                    }
+                    
+                    setTimeout(typeWriter, 50);
+                } else if (isDeleting) {
+                    currentLine = currentLine.substring(0, currentLine.length - 1);
+                    charIndex--;
+                    
+                    if (currentLine.length === 0) {
+                        isDeleting = false;
+                        currentIndex++;
+                        charIndex = 0;
+                        setTimeout(typeWriter, currentMessage.delay || 500);
+                    } else {
+                        if (currentMessage.highlight) {
+                            typingText.innerHTML = `<span class="highlight">${currentLine}</span>`;
+                        } else if (currentLine.startsWith('$')) {
+                            typingText.innerHTML = `<span class="command-prompt">${currentLine}</span>`;
+                        } else {
+                            typingText.innerHTML = `<span class="command-output">${currentLine}</span>`;
+                        }
+                        setTimeout(typeWriter, 30);
+                    }
+                } else {
+                    isDeleting = true;
+                    setTimeout(typeWriter, currentMessage.delay || 1000);
+                }
+                
+                // Update progress bar
+                const progress = Math.min(100, (currentIndex / hackerText.length) * 100);
+                progressFill.style.width = `${progress}%`;
+                progressPercent.textContent = `${Math.round(progress)}%`;
+                
+                // Show access granted message
+                if (currentIndex === hackerText.length - 1 && !isDeleting && charIndex === currentMessage.text.length) {
+                    setTimeout(() => {
+                        accessGranted.style.display = 'block';
+                        accessGranted.style.animation = 'pulseAccess 0.5s ease-out';
+                    }, 500);
+                }
+            }
+        }
+
+        // Custom Cursor Effects
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 50);
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+            cursorFollower.style.transform = 'translate(-50%, -50%) scale(0.9)';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+
+        // Audio Feedback System
+        function showFeedback(message) {
+            const audioFeedback = document.getElementById('audioFeedback');
+            audioFeedback.textContent = `>> ${message}`;
+            audioFeedback.style.display = 'block';
+            audioFeedback.style.animation = 'fadeInOut 3s ease-in-out';
+            
+            // Create typing sound effect
+            playSoundEffect();
+            
+            setTimeout(() => {
+                audioFeedback.style.display = 'none';
+            }, 3000);
+        }
+
+        function playSoundEffect() {
+            // Create simple audio context beep
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.type = 'square';
+                oscillator.frequency.value = 800;
+                gainNode.gain.value = 0.1;
+                
+                oscillator.start();
+                setTimeout(() => {
+                    oscillator.stop();
+                }, 100);
+            } catch (e) {
+                console.log('Audio API not supported');
+            }
+        }
+
+        // Particle Effect on Click
+        document.addEventListener('click', (e) => {
+            createParticleBurst(e.clientX, e.clientY);
+        });
+
+        function createParticleBurst(x, y) {
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+                particle.style.width = `${Math.random() * 8 + 2}px`;
+                particle.style.height = particle.style.width;
+                
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = Math.random() * 10 + 5;
+                const vx = Math.cos(angle) * velocity;
+                const vy = Math.sin(angle) * velocity;
+                
+                document.body.appendChild(particle);
+                
+                let posX = x;
+                let posY = y;
+                let opacity = 1;
+                let size = parseFloat(particle.style.width);
+                
+                const animateParticle = () => {
+                    posX += vx;
+                    posY += vy;
+                    opacity -= 0.02;
+                    size -= 0.1;
+                    
+                    if (opacity <= 0 || size <= 0) {
+                        particle.remove();
+                        return;
+                    }
+                    
+                    particle.style.left = `${posX}px`;
+                    particle.style.top = `${posY}px`;
+                    particle.style.opacity = opacity;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    
+                    requestAnimationFrame(animateParticle);
+                };
+                
+                requestAnimationFrame(animateParticle);
+            }
+        }
+
+        // Initialize all effects
+        window.addEventListener('load', () => {
+            createMatrixRain();
+            setTimeout(typeWriter, 1000);
+            
+            // Add interactive terminal effects
+            document.querySelectorAll('.control-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    showFeedback(`Control ${this.className.split(' ')[1].toUpperCase()} activated`);
+                    playSoundEffect();
+                });
+            });
+            
+            // Add hover effects to icon items
+            document.querySelectorAll('.icon-item').forEach(item => {
+                item.addEventListener('mouseenter', playSoundEffect);
+            });
+        });
+
+        // Responsive adjustments
+        window.addEventListener('resize', () => {
+            document.querySelectorAll('.matrix-column').forEach(col => col.remove());
+            createMatrixRain();
+        });
+    </script>
+</body>
+</html>
