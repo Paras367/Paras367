@@ -52,13 +52,6 @@ Welcome to my GitHub profile! I'm a passionate student developer who loves build
 
 ---
 
-## 📊 GitHub Stats
-
-![CyberVex's GitHub stats](https://github-readme-stats.vercel.app/api?username=Paras367)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Paras367)
-
----
-
 ## 🎯 College Application Highlights
 
 * Created **multiple advanced projects** demonstrating problem-solving & creativity
