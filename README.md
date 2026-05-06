@@ -1,91 +1,124 @@
-# 👋 Hi, I'm CyberVex
+# 👋 Hi, I'm Paras Dhiman (CyberVex)
 
-🚀 **Student | Coder | Tech Explorer**
+🚀 **Student Developer | Privacy-First AI Engineer | Cloudflare Specialist | Founder @ SoftwareLabs | Founder @ BEVENU**
 
-Welcome to my GitHub profile! I'm a passionate student developer who loves building **interactive projects**, **educational simulations**, and **creative tech experiments** using code. I enjoy learning by building and turning complex ideas into clean, working systems.
+Welcome to my GitHub! I build **browser-native AI applications**, **privacy-focused face recognition systems**, **premium e-commerce platforms**, and **single-file web experiences** that run entirely client-side. I believe powerful tech should be lightweight, accessible, and respectful of user privacy.
+
+> 🔐 *No server uploads. No raw data collection. Just intelligent code in your browser.*
 
 ---
 
 ## 🧠 About Me
 
-* 🎓 Student with a strong interest in **Computer Science & Technology**
-* 💻 Comfortable with **Python, HTML, CSS, JavaScript**
-* 🧪 Love creating **educational tools & simulations**
-* 🎨 Focus on **visual + interactive learning**
-* 🔍 Curious about **AI, Web Internals, Security, and System Design**
+* 🎓 Student & Chairperson @ **SoftwareLabs**
+* 💻 Specializing in **TensorFlow.js, face-api.js, Cloudflare Workers, Vanilla JS**
+* 🛍️ Founder of **Bevenu** — Premium sustainable fashion e-commerce platform
+* 🎯 Building **privacy-first AI**: face descriptors > raw images
+* 🧩 Passionate about **single-file HTML/CSS/JS** deployments (no build steps)
+* 🔍 Exploring **liveness detection, lightweight YOLO, browser-based NLP**
+* 🌐 Deploying via **Cloudflare Pages, Workers, GitHub Pages, Vercel**
 
 ---
 
 ## 🛠️ Tech Stack & Badges
 
-![Python Badge](https://img.shields.io/badge/Python-3670A0?style=for-the-badge\&logo=python\&logoColor=ffdd54) ![JavaScript Badge](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black) ![Open Source Badge](https://img.shields.io/badge/Open%20Source-4AB2E7?style=for-the-badge\&logo=github\&logoColor=white) ![Student Dev Badge](https://img.shields.io/badge/Student-0A0A0A?style=for-the-badge\&logo=student)
+![JavaScript Badge](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black) ![TensorFlow.js Badge](https://img.shields.io/badge/TensorFlow.js-FF6F00?style=for-the-badge\&logo=tensorflow\&logoColor=white) ![Cloudflare Badge](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge\&logo=cloudflare\&logoColor=white) ![HTML5 Badge](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge\&logo=html5\&logoColor=white) ![CSS3 Badge](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge\&logo=css3\&logoColor=white) ![Git Badge](https://img.shields.io/badge/Git-F05032?style=for-the-badge\&logo=git\&logoColor=white)
 
-* Python 🐍
-* JavaScript (ES6+)
-* HTML5 & CSS3
-* Tkinter & Turtle (Python GUI & graphics)
-* Cloudflare Workers & Supabase (backend)
-* Git & GitHub
+### Core Technologies
+* **Frontend**: Vanilla JS (ES6+), HTML5, CSS3, React.js (optional), Lottie Animations
+* **AI/ML**: TensorFlow.js, face-api.js, lightweight YOLO variants, rule-based NLP
+* **Backend**: Cloudflare Workers (serverless auth/API), Supabase (optional)
+* **E-Commerce**: Bevenu platform — product catalog, cart, wishlist, auth, admin panel
+* **Privacy**: Face descriptor storage, client-side processing, no video uploads, hashed keys
+* **UI/UX**: 20+ CSS animations, Google Fonts (Playfair Display, DM Sans), Font Awesome 6/5, AOS, GLightbox, Isotope
+* **Deployment**: Cloudflare Pages, GitHub Pages, Netlify, Vercel — zero build step
 
 ---
 
 ## 📌 Featured Projects
 
-### 🔬 Educational & Simulation Projects
+### 🛍️ BEVENU — Premium Fashion E-Commerce Platform
+**Sustainable fashion marketplace with modern UX & Cloudflare backend** [[Trademark: IndiaFilings]]
+* ✅ **Full-stack JS architecture**: Vanilla frontend + Cloudflare Workers auth (`bevenu-auth.dhimanparas605.workers.dev`)
+* ✅ **Rich product catalog**: Men, Women, Kids, Accessories with filters, ratings, dynamic pricing
+* ✅ **Interactive UI**: Dark/light theme toggle, live search suggestions, wishlist, cart with badge counters
+* ✅ **Responsive design**: Mobile-first navbar, hamburger menu, touch-optimized components
+* ✅ **Admin system**: Role-based access, secured terminal, encrypted session handling
+* ✅ **Brand identity**: Custom SVG favicon, Lottie animations, premium typography, value-driven content
+* ✅ **Privacy-first**: Session-based auth, no raw user data collection, CORS-protected endpoints
+* 🌐 **Live**: https://paras367.github.io/BEVENU/
 
-* 🧪 **Interactive Periodic Table** (Python Tkinter)
-* 🌍 **World Languages Map** (3D globe simulation)
-* 🧠 **3D Neural Network Visualizer**
-* ❄️🔥 **Phase Change Time Machine** (states of matter simulator)
+### 🔐 Privacy-First Face Recognition System
+**Browser-native facial authentication with liveness detection**
+* ✅ Blink detection & anti-spoofing safeguards using face-api.js
+* ✅ Stores only mathematical face descriptors — never raw images or video frames
+* ✅ Real-time bounding boxes, confidence scores, glow effects, animated feedback
+* ✅ Single-file HTML deployment with inline CSS/JS — zero build pipeline
+* ✅ Compatible with Cloudflare Workers for optional secure descriptor sync
 
-### 🎮 Interactive Systems
 
-* 🗺️ **Adventure Quiz Engine** (story-based learning)
-* 🎤 **Voice Frequency & Visualizer Tool**
-* 🤖 **Educational Chatbot (Tkinter + API based)**
+### 🤖 Intelligent Knowledge Gateway
+**Hybrid search system: Local JSON → Wikipedia → DuckDuckGo**
+* ✅ Cascading fallback logic for accurate, sourced answers with proper attribution
+* ✅ Web scraping capabilities via Cloudflare Workers (CORS-handled)
+* ✅ Clean, responsive UI with animated transitions, AOS scroll effects
+* ✅ Fully client-side with optional analytics dashboard & offline mode
+* ✅ Rule-based NLP classifier for intent detection + fallback responses
 
-### 🌐 Web Projects
 
-* 🧩 **HTMLX-Ray** – Visual HTML structure inspector
-* 🧠 Browser-based AI knowledge systems
-* 🎨 UI/UX-focused experimental websites
+### 🎨 'BHARAT - A Nation Rising' Company Website
+**Visually rich, interactive brand experience for SoftwareLabs**
+* ✅ AOS scroll animations, Isotope gallery filtering, GLightbox media viewer
+* ✅ Smooth scrolling, active navbar states, validated contact forms with resend.com integration
+* ✅ Mobile-first responsive design with modern aesthetics & 20+ CSS/JS enhancements
+* ✅ External libraries via CDN — zero build pipeline, instant deploy
+* ✅ Integrated BibCit API for citation management & content sourcing
+
+
+### 🔒 Secure Portal & Terminal System
+**Bank-style authentication with encrypted key handling**
+* ✅ Hashed internal key storage (never exposed to client) with client-side encryption
+* ✅ Role-based access: User Registration + Admin Panel with elevated privileges
+* ✅ Secured terminal interface with visual feedback, command history, glow effects
+* ✅ API-serving frontend with personalized dashboards displaying user name & API key
+* ✅ Admin key () auto-stored with encryption, invisible in source
+
+
+### 🧠 Browser-Based AI Classifier Suite
+**Rule-based NLP chatbot + lightweight detection models**
+* ✅ Client-side intent classification with fallback responses & confidence scoring
+* ✅ Optimized TensorFlow.js models for real-time inference in-browser
+* ✅ Modular architecture for easy extension: add new intents, models, or UI components
+* ✅ Privacy-preserving: all processing stays in-browser, no external API calls required
+* ✅ Lightweight YOLO variant integration for object detection tasks
+
 
 ---
 
-## 🎯 College Application Highlights
+## 📈 Recent Activity & Contributions
 
-* Created **multiple advanced projects** demonstrating problem-solving & creativity
-* Strong focus on **STEM-based learning & simulations**
-* Active **GitHub portfolio** showing consistent coding practice
-* Projects involve **AI, data visualization, and system design**
-
----
-
-## 📝 Project-Based Example
-
-### 🔬 Phase Change Time Machine
-
-**Description:** Simulates states of matter with interactive visuals using Tkinter & Turtle.
-
-**Features:**
-
-* Real-time particle animation
-* Visual phase transitions (solid, liquid, gas)
-* Educational & interactive GUI
-
-**Tech Stack:** Python, Tkinter, Turtle
-
-**Repo:** [Advanced_Codes](https://github.com/Paras367/Advanced_Codes/)
+* 🔄 Migrating Python-based prototypes → TensorFlow.js browser equivalents for client-side AI
+* ⚡ Optimizing face-api.js pipelines for mobile performance & liveness detection accuracy
+* 🧪 Experimenting with blink-detection algorithms & anti-spoofing for secure auth
+* 🌍 Integrating Wikipedia & DuckDuckGo APIs for intelligent fallback search in knowledge systems
+* 🎨 Building reusable UI component libraries with 20+ animation presets & Font Awesome icons
+* 🔐 Implementing encrypted admin key systems with client-side hashing for Bevenu & Secure Portal
+* 🛍️ Scaling Bevenu e-commerce platform: product filtering, cart logic, wishlist sync, theme persistence
+* 🚀 Deploying multiple projects to Cloudflare Pages with 1-click CI/CD workflows
 
 ---
 
 ## 🤝 Let's Connect
 
-* 🌟 Explore my repositories below
-* 💬 Open to feedback, ideas, and collaboration
+* 📧 **Email**: [dhimanparas605@gmail.com]  
+* 🌐 **Website**: [softwarelabs.dev] | [https://softwarelabschd.github.io/softwarelabs/](https://softwarelabschd.github.io/softwarelabs/)  
+* 💬 **Open to**: Collaboration on privacy-AI, web security, and Educational Tools
+* 🚀 **Currently building**: BEVENU Clothings 
 
-> "Code is not just about solving problems — it's about **explaining ideas to the future**."
+> "The future of AI isn't in the cloud — it's in your browser, respecting your privacy, one descriptor at a time."
 
 ---
 
-⭐ If you like my work, consider starring a repository!
+⭐ If you value privacy-first innovation, consider starring a repo or sharing feedback!  
+🔖 *All projects use proprietary licensing — contact for collaboration inquiries.*  
+🏢 **SoftwareLabs** — Chairpersons: Paras Dhiman & Arhan
