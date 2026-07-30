@@ -111,7 +111,7 @@ Welcome to my GitHub! I build **browser-native AI applications**, **privacy-focu
 ## 🤝 Let's Connect
 
 * 📧 **Email**: [dhimanparas605@gmail.com]  
-* 🌐 **Website**: [softwarelabs.dev] | (https://softwarelabschd.github.io/softwarelabs/](https://softwarelabschd.github.io/softwarelabs/)  
+* 🌐 **Website**: [softwarelabs.dev] | [https://softwarelabschd.github.io/softwarelabs/](https://softwarelabschd.github.io/softwarelabs)  
 * 💬 **Open to**: Collaboration on privacy-AI, web security, and Educational Tools
 * 🚀 **Currently building**: BEVENU Clothings 
 
