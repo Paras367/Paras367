@@ -121,4 +121,4 @@ Welcome to my GitHub! I build **browser-native AI applications**, **privacy-focu
 
 ⭐ If you value privacy-first innovation, consider starring a repo or sharing feedback!  
 🔖 *All projects use proprietary licensing — contact for collaboration inquiries.*  
-🏢 **SoftwareLabs** — Chairpersons: Paras Dhiman & Arhan
+🏢 **SoftwareLabs** — Chairpersons: Paras Dhiman 
