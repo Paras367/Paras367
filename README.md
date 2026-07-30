@@ -46,7 +46,7 @@ Welcome to my GitHub! I build **browser-native AI applications**, **privacy-focu
 * ✅ **Admin system**: Role-based access, secured terminal, encrypted session handling
 * ✅ **Brand identity**: Custom SVG favicon, Lottie animations, premium typography, value-driven content
 * ✅ **Privacy-first**: Session-based auth, no raw user data collection, CORS-protected endpoints
-* 🌐 **Live**: https://paras367.github.io/BEVENU/
+* 🌐 **Live**: https://bevenu.vercel.app/
 
 ### 🔐 Privacy-First Face Recognition System
 **Browser-native facial authentication with liveness detection**
