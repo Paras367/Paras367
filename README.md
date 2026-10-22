@@ -1,7 +1,7 @@
 # 👋 Hi, I'm Paras Dhiman (CyberVex)
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=venom&color=0:00C9FF,100:92FE9D&height=200&section=header&text=Code.%20Build.%20Ship.&fontSize=60&animation=twinkling&fontAlignY=40&desc=Student%20Developer%20|%20Privacy-First%20AI%20Engineer%20|%20Founder%20@%20SoftwareLabs&descAlignY=65&descAlign=62" alt="Header Banner"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:1e293b&height=220&section=header&text=Paras%20Dhiman%20(CyberVex)&fontSize=65&fontAlignY=38&desc=Code.%20Build.%20Ship.%20|%20Privacy-First%20AI%20Engineer%20|%20Founder%20@%20SoftwareLabs&descSize=26&descAlignY=65&descAlign=50&animation=twinkling&fontColor=ffffff&descColor=94a3b8" alt="Header Banner"/>
 </p>
 
 <p align="center">
